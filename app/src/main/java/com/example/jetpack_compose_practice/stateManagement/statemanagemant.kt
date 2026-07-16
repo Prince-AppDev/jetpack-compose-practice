@@ -44,7 +44,8 @@ var score by remember { mutableIntStateOf(0) }
             }
             Spacer(Modifier.width(35.dp))
 
-            Button(onClick = {score--}) {
+            Button(onClick = {score--},
+                enabled = score>0) {
                 Text(text = "Decrement",fontSize = 20.sp , fontWeight = FontWeight.Bold)
 
             }
