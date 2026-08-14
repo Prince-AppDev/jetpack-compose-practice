@@ -8,7 +8,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.jetpack_compose_practice.chatAppScreens.ui.ChatsScreens
 import com.example.jetpack_compose_practice.chatAppScreens.ui.ProfileScreens
-import com.example.jetpack_compose_practice.chatAppScreens.ui.SplashScreen
 import com.example.jetpack_compose_practice.chatAppScreens.ui.UpdateScreens
 
 @Composable
@@ -21,11 +20,11 @@ fun MainScreen()
         padding ->
         NavHost(
             navController =navController,
-            startDestination = Screens.Splash.route,
+            startDestination = Screens.Chats.route,
             modifier = Modifier.padding(padding)
         )
         {
-            composable(Screens.Chats.route){ SplashScreen(navController) }
+
             composable(Screens.Chats.route){ ChatsScreens() }
             composable(Screens.Updates.route){ UpdateScreens() }
             composable(Screens.Profile.route){ ProfileScreens() }
