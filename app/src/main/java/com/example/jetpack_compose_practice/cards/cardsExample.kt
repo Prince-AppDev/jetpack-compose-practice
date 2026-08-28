@@ -106,8 +106,8 @@ fun CardsExample() {
 
                 Box(
                     Modifier
-                        .size(70.dp)
-                        .height(90.dp)
+                        .size(50.dp)
+                        .height(50.dp)
                         .background(
                             color = Color.LightGray.copy(alpha = 0.9f),
                             shape = CircleShape
@@ -118,7 +118,7 @@ fun CardsExample() {
                 {
                     Icon(
                         imageVector = Icons.Default.FavoriteBorder,
-                        contentDescription = "like", Modifier.size(35.dp)
+                        contentDescription = "like", Modifier.size(30.dp)
                     )
                 }
 
