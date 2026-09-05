@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -31,6 +30,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -43,6 +43,7 @@ import androidx.compose.ui.unit.sp
 fun GlassLoginScreen() {
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -56,12 +57,12 @@ fun GlassLoginScreen() {
                 )
             ),
         contentAlignment = Alignment.Center
-    )
-    {
+    ) {
+
         Card(
             modifier = Modifier
-                .size(350.dp, height = 480.dp)
-                .padding(8.dp),
+                .fillMaxWidth(0.88f)
+                .padding(16.dp),
             colors = CardDefaults.cardColors(
                 // glass card code
                 containerColor = Color.White.copy(alpha = 0.18f)
@@ -73,15 +74,14 @@ fun GlassLoginScreen() {
                 color = Color(0xFFB8F3FF).copy(alpha = 0.65f)
             ),
             elevation = CardDefaults.elevatedCardElevation(
-                defaultElevation = 2.dp,
-                hoveredElevation = 2.dp
+                defaultElevation = 0.dp,
+                hoveredElevation = 0.dp
             ),
         )
         {
             Column(
                 modifier = Modifier
-                    .fillMaxSize().background(color = Color.Transparent)
-                    .padding(16.dp),
+                    .fillMaxWidth().padding(16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             )
             {
@@ -99,16 +99,16 @@ fun GlassLoginScreen() {
                     value = username,
                     onValueChange = { username = it },
                     placeholder = {
-                        Text("Username" , fontWeight = FontWeight.Light)
-                    } ,
+                        Text("Username", fontWeight = FontWeight.Light)
+                    },
                     colors = TextFieldDefaults.colors(
-                        focusedContainerColor = Color.Transparent ,
-                        unfocusedContainerColor = Color.Transparent ,
+                        focusedContainerColor = Color.Transparent,
+                        unfocusedContainerColor = Color.Transparent,
                         focusedIndicatorColor = Color(0xFFB8F3FF),
                         unfocusedIndicatorColor = Color.White.copy(alpha = 0.4f),
-                        focusedTextColor = Color.White ,
+                        focusedTextColor = Color.White,
                         unfocusedTextColor = Color.White,
-                        focusedPlaceholderColor = Color.White.copy(alpha = 0.7f) ,
+                        focusedPlaceholderColor = Color.White.copy(alpha = 0.7f),
                         unfocusedPlaceholderColor = Color.White.copy(alpha = 0.7f)
 
 
@@ -123,26 +123,26 @@ fun GlassLoginScreen() {
                     value = password,
                     onValueChange = { password = it },
                     placeholder = {
-                        Text("Password",fontWeight = FontWeight.Light)
+                        Text("Password", fontWeight = FontWeight.Light)
                     },
                     colors = TextFieldDefaults.colors(
-                        focusedContainerColor = Color.Transparent ,
-                        unfocusedContainerColor = Color.Transparent ,
+                        focusedContainerColor = Color.Transparent,
+                        unfocusedContainerColor = Color.Transparent,
                         focusedIndicatorColor = Color(0xFFB8F3FF),
                         unfocusedIndicatorColor = Color.White.copy(alpha = 0.4f),
-                        focusedTextColor = Color.White ,
-                        unfocusedTextColor = Color.White ,
-                        focusedPlaceholderColor = Color.White.copy(alpha = 0.7f) ,
+                        focusedTextColor = Color.White,
+                        unfocusedTextColor = Color.White,
+                        focusedPlaceholderColor = Color.White.copy(alpha = 0.7f),
                         unfocusedPlaceholderColor = Color.White.copy(alpha = 0.7f)
 
-                        )
+                    )
                 )
                 Spacer(Modifier.height(45.dp))
                 Button(
-                    onClick = {} ,
-                    modifier = Modifier.size(200.dp,50.dp) ,
-                    shape = RoundedCornerShape(12.dp) ,
-                    colors = ButtonDefaults.buttonColors(containerColor =Color(0xFF153941))
+                    onClick = {},
+                    modifier = Modifier.size(200.dp, 50.dp),
+                    shape = RoundedCornerShape(12.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF153941))
                 ) {
                     Text(text = "Sign In", fontSize = 20.sp, fontWeight = FontWeight.Light)
                 }
@@ -152,12 +152,16 @@ fun GlassLoginScreen() {
                     horizontalArrangement = Arrangement.Center
                 )
                 {
-                    Text(text="Forget password?" , color = Color.Black.copy(alpha = 0.6f))
-                    Spacer(Modifier.width(6.dp))
-                    Text(text="Click here" , fontWeight = FontWeight.SemiBold, color = Color.Black.copy(alpha = 0.5f))
+                    Text(
+                        text = "Forget password?",
+                        color = Color.Black.copy(alpha = 0.6f),
+                        modifier = Modifier.fillMaxWidth(),
+                        textAlign = TextAlign.Center
+                    )
 
                 }
             }
         }
     }
 }
+
